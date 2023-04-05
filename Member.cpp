@@ -3,13 +3,9 @@
 using namespace std;
 
 Member::Member() {} ;
-Member::Member(string name, string phone, string mail, string university, string faculty, string handle , string Membership_Type, int academic_level)
-//:  Mail(mail), Phone(phone), Faculty(faculty), University(university), Handle(handle), Academic_Level(academic_level)
+Member::Member(string name, string phone, string mail, string university, string faculty, string handle , string Membership_Type, string academic_level)
+      : Name(name), Mail(mail), Phone(phone), Faculty(faculty), University(university), Handle(handle), Academic_Level(academic_level)
 {
-
-    Name =name ;
-    Mail = ( mail), Phone=(phone), Faculty=(faculty), University=(university), Handle=(handle), Academic_Level=(academic_level);
-
     ID = ( Membership_Type + to_string(ID_Counter++) );
 }
 int Member::ID_Counter = 1 ;
@@ -29,9 +25,18 @@ void Member::Set_Handle(string handle)
 {
     Handle = handle ;
 }
-void Member::Set_Academic_Level(int academic_level)
+void Member::Set_Academic_Level(string academic_level)
 {
     Academic_Level = academic_level ;
+}
+
+void Member::Set_Faculty(string faculty)
+{
+    Faculty=faculty ;
+}
+void Member::Set_University(string university)
+{
+    University=university ;
 }
 string Member::Get_Name()
 {
@@ -61,7 +66,7 @@ string Member::Get_Handle()
 {
     return Handle ;
 }
-int Member::Get_Academic_Level()
+string Member::Get_Academic_Level()
 {
     return Academic_Level ;
 }
