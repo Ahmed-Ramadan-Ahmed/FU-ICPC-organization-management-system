@@ -1,28 +1,29 @@
+#ifndef FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_MENTOR_H
+#define FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_MENTOR_H
+
 #include <bits/stdc++.h>
 #include "Member.h"
 #include "Student.h"
-#include "Leader.h"
+
+class Leader ;
 using namespace std;
 
-#ifndef FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_MENTOR_H
-#define FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_MENTOR_H
-
 class Mentor : public Member{
-    Student * Students ;
+    vector<Student> Students ;
     int static Mentors_Counter ;
-    int Mentor_Students_Counter ;
+    void Fire_Student(Student student) ;
 public:
     Mentor() ;
+//    Mentor(Mentor &mentor) ;
     Mentor(string name, string phone, string mail, string university,
-           string faculty, string handle, int academic_level);
-void Insert_Student(Student student) ;
-void Fire_Student(Student student) ;
-void Print_Students_Data();
-void Print_Mentor_Data() ;
-void Add_Points_to_Student(Student &student, int points) ;
-void Add_Warning_to_Student(Student &student) ;
-friend class Leader ;
+           string faculty, string handle, string academic_level);
+    void Insert_Student(Student student) ;
+    bool Fire_Student_with_ID(string id) ;
+    void Print_Students_Data();
+    void Print_Mentor_Data() ;
+    void Add_Points_to_Student(Student student, int points) ;
+    void Add_Warning_to_Student(Student student) ;
+    friend class Leader ;
 };
 
-
-#endif //FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_MENTOR_H
+#endif //FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_MENTOR_H
