@@ -1,14 +1,16 @@
+#ifndef FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_STUDENT_H
+#define FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_STUDENT_H
+
+
 #include <bits/stdc++.h>
 #include "Member.h"
-#include "Mentor.h"
-using namespace std;
+class Mentor ;
 
-#ifndef FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_STUDENT_H
-#define FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_STUDENT_H
+using namespace std;
 
 class Student : public Member {
 private :
-    int Training_Level ;
+    string Training_Level ;
     int Points ;
     int Warning_Times ;
     void Add_Points(int points) ;
@@ -17,14 +19,15 @@ public:
     Student() ;
     int static Students_Counter ;
 
-    Student(string name, string phone, string mail, string university, string faculty, string handle, int academic_level, int training_level);
+    Student(string name, string phone, string mail, string university, string faculty, string handle, string academic_level, string training_level);
     void Print_Student_Data();
 
     int Get_Points();
-    int Get_Training_Level();
-    int Get_Absent_times_with_apology();
+    string Get_Training_Level();
     int Get_Warning_Times();
+    void Set_Training_Level(string training_level) ;
     friend class Mentor ;
 };
 
-#endif //FU_ICPC_ORGANIZATION_MANAGEMENT_SYSTEM_STUDENT_H
+
+#endif //FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_STUDENT_H
