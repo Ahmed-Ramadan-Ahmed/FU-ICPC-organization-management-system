@@ -12,18 +12,6 @@ Student::Student(string name, string phone, string mail, string university,
     Students_Counter++ ;
 }
 
-//Student::Student(Student &student)
-//{
-//    Set_Name(student.Get_Name()) ;
-//    Set_Phone(student.Get_Phone()) ;
-//    Set_Mail(student.Get_Mail()) ;
-//    Set_Handle(student.Get_Handle()) ;
-//    Set_Academic_Level(student.Get_Academic_Level()) ;
-//    Set_Faculty(student.Get_Faculty()) ;
-//    Set_University(student.Get_University()) ;
-//    Training_Level=student.Get_Training_Level() ;
-//}
-
 void Student::Set_Training_Level(string training_level)
 {
     Training_Level=training_level ;
@@ -43,6 +31,8 @@ int Student::Get_Warning_Times()
 void Student::Print_Student_Data()
 {
     Print_Member_Data() ;
+    cout<<"Points : "<<Points<<endl;
+    cout<<"Warning times : "<<Warning_Times<<" Times"<<endl;
     cout<<"Training Level : "<<Training_Level<<endl<<endl;
 }
 void Student::Add_Points(int points)
