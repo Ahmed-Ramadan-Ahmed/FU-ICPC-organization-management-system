@@ -38,8 +38,6 @@ public:
     string Get_ID() ;
     string Get_Handle() ;
     string Get_Academic_Level() ;
-
-
 };
 
 #endif //FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_MEMBER_H
