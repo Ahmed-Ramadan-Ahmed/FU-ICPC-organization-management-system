@@ -18,7 +18,6 @@ private:
     void Fire_Mentor(Mentor mentor) ;
 public:
     Leader() ;
-    //Leader(Leader &leader) ;
     Leader(string name, string phone, string mail, string university,
            string faculty, string handle, string academic_level);
     void Insert_Mentor(Mentor mentor) ;
