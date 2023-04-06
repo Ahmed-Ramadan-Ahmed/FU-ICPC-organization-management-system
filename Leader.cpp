@@ -6,16 +6,7 @@
 using namespace std;
 int Leader::Leaders_Counter = 0 ;
 Leader::Leader() {} ;
-//Leader::Leader(Leader &leader)
-//{
-//    Set_Name(leader.Get_Name()) ;
-//    Set_Phone(leader.Get_Phone()) ;
-//    Set_Mail(leader.Get_Mail()) ;
-//    Set_Handle(leader.Get_Handle()) ;
-//    Set_Academic_Level(leader.Get_Academic_Level()) ;
-//    Set_Faculty(leader.Get_Faculty()) ;
-//    Set_University(leader.Get_University()) ;
-//}
+
 Leader::Leader(string name, string phone, string mail, string university,
                string faculty, string handle, string academic_level)
         : Member(name,phone,mail,university,faculty,handle,"L",academic_level)
@@ -35,7 +26,7 @@ void Leader::Insert_Mentor(Mentor mentor)
         if(Mentors.back().Students.size()==30) break;
     }
     cout<<mentor.Get_Name()<<" now is a mentor"<<endl;
-    cout<<Mentors.back().Students.size()<<" students were moved from waiting list to "<<mentor.Get_Name()<<"'s group"<<endl<<endl;
+    cout<<Mentors.back().Students.size()<<" students were moved from waiting list to "<<mentor.Get_Name()<<"'s class"<<endl<<endl;
 }
 void Leader::Insert_Student_to_Mentor(Student student, string id)
 {
@@ -88,8 +79,10 @@ void Leader::Fire_Mentor_With_ID(string id)
         if(Mentors[i].Get_ID()==id)
         {
             Fire_Mentor(Mentors[i]) ;
+            return;
         }
     }
+    cout<<"Mentor with ID = "<<id<<" not found"<<endl<<endl;
 }
 void Leader::Fire_Student_with_ID(string id)
 {
@@ -104,6 +97,7 @@ void Leader::Fire_Student_with_ID(string id)
             }
         }
     }
+    cout<<"Student with ID = "<<id<<" not found"<<endl<<endl;
 }
 
 void Leader::Print_Leader_Data()
@@ -158,10 +152,11 @@ void Leader::Add_points_to_student(string id , int points)
             if(Mentors[i].Students[j].Get_ID()==id)
             {
                 Mentors[i].Add_Points_to_Student(Mentors[i].Students[j],points) ;
-                break;
+                return;
             }
         }
     }
+    cout<<"Student with ID = "<<id<<" not found"<<endl<<endl;
 }
 void Leader::Warning_student(string id)
 {
@@ -176,6 +171,7 @@ void Leader::Warning_student(string id)
             }
         }
     }
+    cout<<"Student with ID = "<<id<<" not found"<<endl<<endl;
 }
 
 void Leader::Find_Student(string id)
@@ -192,7 +188,7 @@ void Leader::Find_Student(string id)
             }
         }
     }
-    cout<<"Student isn't found : "<<endl<<endl;
+    cout<<"Student with ID = "<<id<<" not found"<<endl<<endl;
 }
 
 bool CMP_Points(Student x , Student y)
@@ -209,7 +205,7 @@ void Leader::Sort_Students_by_point_rate()
     }
 }
 
-bool CMP_Warning(Student x , Student y)
+bool CMP_Warning(Student &x , Student &y)
 {
     return x.Get_Warning_Times() < y.Get_Warning_Times()  ;
 }
