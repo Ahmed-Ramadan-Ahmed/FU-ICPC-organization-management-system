@@ -29,5 +29,4 @@ public:
     friend class Mentor ;
 };
 
-
 #endif //FU_ICPC_MANAGEMENT_ORGANIZATION_SYSTEM_STUDENT_H
